@@ -1,7 +1,7 @@
 // ARRAY - são utilizados para armazenar mais de um valor em uma única variável
 
 //Quando falarmo de arrays estamos falando de vetores (identificado em um linha) e matriz (multidimensional)
-/*
+
 const saldoGabriel = 1000;
 const saldoVanessa = 105500;
 
@@ -326,6 +326,6 @@ console.table(vanessa.linguagensFavoritas);
 for (const propriedade in vanessa) {
   console.log(`${propriedade}: ${vanessa[propriedade]}`);
 }
-*/
+
 
  
