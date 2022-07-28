@@ -1,7 +1,7 @@
 // ARRAY - são utilizados para armazenar mais de um valor em uma única variável
 
 //Quando falarmo de arrays estamos falando de vetores (identificado em um linha) e matriz (multidimensional)
- 
+/*
 const saldoGabriel = 1000;
 const saldoVanessa = 105500;
 
@@ -79,7 +79,7 @@ console.log(frutaRemovida);
 
 const frutaRemovida = frutas.splice(2, 1, 'fruta do conde');
 console.table(frutas);
- */
+
 const redesSociais = [
   'Instagram',
   'Youtube',
@@ -261,3 +261,71 @@ const clientes = [
 console.table(clientes);
 clientes.sort((a, b) => b[1] - a[1]); // [1] corresponde o segundo elemento do array que corresponde ao número, pois o [0] seria referente ao nome.
 console.table(clientes);
+ 
+
+//OBJETS E JSON
+
+// objeto  - é uma coleção de propriedade.  A propriedade é uma associação entre um nome que chamamo de chave e um valor. esse valor pode ser uma função.
+
+// o java script possui duas forms para criacao de objeto - OBJETO E JSON (java script objetive notacion)
+
+const programador = {
+  nome: 'Gabriel',
+  nascimento: '04/07/1980',
+  casado: true,
+  linguagensFavortira: ['JavaScript', 'PHP', 'Python'],
+  trabalhoDesde: 1996,
+};
+console.table(programador);
+console.log(programador['nascimento']); // mostra o valor que esta em nascimento
+ 
+//CLASSES - COM ELA É POSSÍVEL DEFINIR UMA ESTRATURA PADROINZADA DE COMO DEVE SER O OBJETO. TANTO NO STATUS QUE SAO AS PROPRIEDADES COMO NO TRATAMENTO QUE SAO OS METODOS
+
+class programador {
+  constructor( // é nele que se define as propriedades que vamos utilizar no objeto
+    nome,
+    nascimento,
+    casado,
+    linguagensFavoritas = [],
+    trabalhoDesde = null
+  ) {
+    this.nome = nome;
+    this.nascimento = nascimento;
+    this.casado = casado;
+    this.linguagensFavoritas = linguagensFavoritas;
+    this.trabalhoDesde = trabalhoDesde;
+  }
+}
+// criando um objeto gabriel
+const gabriel = new programador(
+  'Gabriel Froes',
+  '04/07/1980',
+  true,
+  ['JavaScript', 'PHP', 'Python'],
+  1996
+);
+// criando um objeto vanessa
+const vanessa = new programador(
+  'Aldery Paixao',
+  '07/03/1983',
+  true,
+  ['teste', 'JavaScript', 'PHP', 'Python'],
+  1996
+);
+
+console.table(gabriel);
+console.table(vanessa);
+
+// posso acessar cada propeirdade de forma individual.ex.
+
+console.table(gabriel.nome);
+console.table(vanessa.linguagensFavoritas);
+
+// USANDO O FOR in
+
+for (const propriedade in vanessa) {
+  console.log(`${propriedade}: ${vanessa[propriedade]}`);
+}
+*/
+
+ 
