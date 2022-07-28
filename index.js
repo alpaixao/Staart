@@ -327,5 +327,41 @@ for (const propriedade in vanessa) {
   console.log(`${propriedade}: ${vanessa[propriedade]}`);
 }
 
+// PILHAS (STACKS) - SÃO ESTRUTURAS DE DADOS LINEARES, SERVE PARA EXCLUSÃO E REMOÇÃO DE ÍTENS
+//UMA PILHA SEGUE O PRINCIPIO LIFU - O ULTIMO ÍTEM A ENTRAR VAI SER O PRIMEIRO A SAIR. SÓ É POSSIVEL ACESSAR O ULTIMO ÍTEM DA PILHA
+// PARA EU ACESSAR O PROXIMO ÍTEM, O ULTIMO TEM QUE SAIR. O FINAL DA PILHA É CONHEIDO COMO TOPO E O INÍCIO É CONHECIDO COMO BASE
 
- 
+// principais operações em pilhas
+//push - inserir novos elementos
+//pop - remorver elementos
+//top/peek - retornar elementos
+// isEmpty  - retorna um valo do tipo Boolean indicando se a pilha está ou não vazia
+// isFull - retorna um valor do tipo Boolean indicando se a pilha está ou não cheia
+
+class Pilha {
+  constructor() {
+    this.itens = [];
+  }
+  push(item) {
+    // para acrescentar um ítem
+    this.itens.push(item);
+  }
+  pop() {
+    // para remover um ítem da lista
+    this.itens.pop();
+  }
+  top() {
+    return this.itens[this.itens.length - 1];
+  }
+  isEmpty() {
+    return this.itens.length == 0;
+  }
+}
+const pilha = new Pilha();
+pilha.push(10);
+pilha.push(20);
+pilha.push(30);
+pilha.push(40);
+
+pilha.pop();
+console.table(pilha.isEmpty()); //  aqui, após o pilha. foi mudado para tetar o pop, push e isEmpty
