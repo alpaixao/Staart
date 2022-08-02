@@ -1,5 +1,5 @@
 // ARRAY - são utilizados para armazenar mais de um valor em uma única variável
-
+/*
 //Quando falarmo de arrays estamos falando de vetores (identificado em um linha) e matriz (multidimensional)
 
 const saldoGabriel = 1000;
@@ -328,7 +328,7 @@ for (const propriedade in vanessa) {
 }
 
 // PILHAS (STACKS) - SÃO ESTRUTURAS DE DADOS LINEARES, SERVE PARA EXCLUSÃO E REMOÇÃO DE ÍTENS
-//UMA PILHA SEGUE O PRINCIPIO LIFU - O ULTIMO ÍTEM A ENTRAR VAI SER O PRIMEIRO A SAIR. SÓ É POSSIVEL ACESSAR O ULTIMO ÍTEM DA PILHA
+//UMA PILHA SEGUE O PRINCIPIO LIFO- LAST IN FOR OUT - O ULTIMO ÍTEM A ENTRAR VAI SER O PRIMEIRO A SAIR. SÓ É POSSIVEL ACESSAR O ULTIMO ÍTEM DA PILHA
 // PARA EU ACESSAR O PROXIMO ÍTEM, O ULTIMO TEM QUE SAIR. O FINAL DA PILHA É CONHEIDO COMO TOPO E O INÍCIO É CONHECIDO COMO BASE
 
 // principais operações em pilhas
@@ -350,7 +350,7 @@ class Pilha {
     // para remover um ítem da lista
     this.itens.pop();
   }
-  top() {
+  top() { // PARA SABER O ÍTEM QUE ESTA NO TOPO DA PILHA
     return this.itens[this.itens.length - 1];
   }
   isEmpty() {
@@ -365,3 +365,222 @@ pilha.push(40);
 
 pilha.pop();
 console.table(pilha.isEmpty()); //  aqui, após o pilha. foi mudado para tetar o pop, push e isEmpty
+
+
+//FILAS E DEQUES
+
+//FILAS SAO ESTRUTRAS LINEARES PARECEIDAS COMO ARRAYS E LISTAS , PORÉM SAO MAIS RÍGIDAS PARA ENTRADA E SAÍDAS DE DADOS.
+//AS REGRAS SEGUE O SISTEMA FIFO - FIRST IN FIRST OUT - O PRIEMEIRO ELEMENOA ENTRAR, SERÁ O PRIMEIRO A SAIR.
+
+//PRINCIPAIS OPERAÇÕES EM FILAS
+//ENQUEUE -  insere um novo elemento
+//DEQUEUE -  remove o primeiro elemento
+//FRONT/PEEK -  retorna o primeiro elemento
+//isEmpty - retorna um valor do ipo boolean indicando se a ila etá ou não vazia
+// isFull -  retorna um valor do tipo boolean indicando se a fila está ou não cheia
+//rear - retorna ultimo elemento da fila (calda)
+
+
+//  ENQUEUE
+
+class Fila {
+  constructor() {
+    this.itens = [];
+  }
+  enqueue(item) { // inserir um novo elemento
+    this.itens.push(item);
+  }
+  isEmpty() {
+    // para saber se a fila esta vazia
+    return this.itens.length == 0; // se for igual a zero a fila esta fazia
+  }
+}
+const fila = new Fila();
+console.log(fila.isEmpty()); // vai aparecer true, pois a fila ainda está vazia
+fila.enqueue('ferrari');
+fila.enqueue('fusca');
+fila.enqueue('Del Rey');
+fila.enqueue('HB20');
+
+console.table(fila.itens);
+
+//para saber se a fila esta vazia usamos o isEmpty
+console.log(fila.isEmpty()); // vair aparecer false , pois a fila nao esta vazia
+ 
+
+// DEQUEUE - remove o primeiro elemento
+
+class Fila {
+  constructor() {
+    this.itens = [];
+  }
+  enqueue(item) {
+    // inserir um novo elemento
+    this.itens.push(item);
+  }
+  isEmpty() {
+    // para saber se a fila esta vazia
+    return this.itens.length == 0; // se for igual a zero a fila esta fazia
+  }
+  dequeue() {
+    if (this.isEmpty()) return undefined; // se estiver fazio retorna undefined
+
+    return this.itens.shift();
+  }
+  front() {// -  front (retorna o primeiro elemento) 
+    return this.itens[0];
+  }
+  rear() { //e rear (retorna ultimo elemento da fila (calda))
+    return this.itens[this.itens.length - 1];
+  }
+}
+const fila = new Fila();
+console.log(fila.isEmpty()); // vai aparecer true, pois a fila ainda está vazia
+fila.enqueue('ferrari');
+fila.enqueue('fusca');
+fila.enqueue('Del Rey');
+fila.enqueue('HB20');
+fila.dequeue(); // retira o primeiro elemento da fila
+console.table(fila.itens);
+console.log(fila.isEmpty());
+
+console.log(fila.front());
+console.log(fila.rear());
+
+
+
+// DEQUES -
+
+// insertFront  - insere um elemento na frente
+// insertLast - insere um elemeno na cauda
+// deleteFront - remove o elemento que está na frente
+// deleteLast -  remove o elemento que está na cauda
+// front - retorna o elemento que está na frente
+// rear - retorna o elemento que esta na cauda
+//isEmpty -  retorna um valor do tipo Boolean indcando se o deque esta ou não vazio
+//isFull -  retoanr um valot do tio Boolean indicando se o deque está ou não cheio.
+
+class Deque {
+  constructor() {
+    this.itens = [];
+  }
+  insertFront(item) {
+    return this.itens.unshift(item);
+  }
+  insertLast(item) {
+    return this.itens.push(item);
+  }
+  deleteFront() {
+    if (this.isEmpty()) return undefined;
+    return this.itens.shift();
+  }
+  deleteLast() {
+    if (this.isEmpty()) return undefined;
+    return this.itens.pop();
+  }
+  isEmpty() {
+    return this.itens.length == 0;
+  }
+  front() {
+    return this.itens[0];
+  }
+  rear() {
+    return this.itens[this.itens.length - 1];
+  }
+}
+
+const deque = new Deque();
+deque.insertFront('ferrari');
+deque.insertFront('fusca');
+deque.insertFront('Del Rey');
+deque.insertLast('kombi');
+deque.insertLast('vectra');
+
+deque.deleteFront();
+deque.deleteLast();
+
+console.table(deque.itens);
+
+console.log(deque.front());
+console.log(deque.rear());
+
+*/
+
+// listas encadeadas - listas ligadas -  ex. trem (cada vagao é um elemento e cada ligacao entre um deles é o ponteiro que indica o elemento)
+// o primeiro elemento é chamado de head (cabeça)
+// o ultimo elemento é conhecido como undefined
+
+//princiais operações em lista
+//insertion - adiciona elementos (insertFirt, insertLast, insertAt)
+//deletion - remove elementos (deleteAt)
+//traversal - percorre por cada elemento
+//search - busca um elemento específico (searchAt)
+
+// existe lista encadeadas simples,  duplamente encadeadas circular e ordenadas
+
+// LISTA ENCADEADAS SIMPLES
+
+class No {
+  constructor(elemento) {
+    this.elemento = elemento;
+    this.proximo = undefined;
+  }
+}
+
+class ListaEncadeada {
+  constructor() {
+    this.head = undefined;
+  }
+
+  insertFirst(elemento) {
+    const novo = new No(elemento);
+    let atual;
+    if (!this.head) {
+      this.head = novo;
+    } else {
+      atual = this.head;
+      novo.proximo = atual;
+      this.head = novo;
+    }
+    return elemento;
+  }
+  insertLast(elemento) {
+    const novo = new No(elemento);
+    let atual;
+    if (!this.head) {
+      this.head = novo;
+    } else {
+      atual = this.head;
+      while (atual.proximo) {
+        atual = atual.proximo;
+      }
+      atual.proximo = novo;
+    }
+    return elemento;
+  }
+  searchAt(posicao) {
+    let atual = this.head;
+    for (let i = 0; i < posicao && atual; i++) {
+      atual = atual.proximo;
+    }
+    return atual;
+  }
+  insertAt(elemento, posicao){
+  const novo = new No(elemento)
+  if (posicao == 0) {
+    this.insertFirst(elemento)
+  } else {
+    cnst anterior = this.searchAt(posicao -1);
+    const atual = anterior.proximo;
+    novo.proximo = atual;
+    anterior.proximo = novo;
+
+  }
+  return elemento;
+  }
+}
+const trem = new ListaEncadeada();
+console.log(trem.insertFirst('Locomotiva')); // insere um nó no início da lista
+console.log(trem.insertLast('vagao1')); // insere um nó no final da lista
+console.log(trem.insertLast('vagao2'));
+console.log(trem.searchAt(2));
