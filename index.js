@@ -1,5 +1,5 @@
 // ARRAY - são utilizados para armazenar mais de um valor em uma única variável
-/*
+
 //Quando falarmo de arrays estamos falando de vetores (identificado em um linha) e matriz (multidimensional)
 
 const saldoGabriel = 1000;
@@ -504,7 +504,6 @@ console.table(deque.itens);
 console.log(deque.front());
 console.log(deque.rear());
 
-*/
 
 // listas encadeadas - listas ligadas -  ex. trem (cada vagao é um elemento e cada ligacao entre um deles é o ponteiro que indica o elemento)
 // o primeiro elemento é chamado de head (cabeça)
@@ -570,7 +569,7 @@ class ListaEncadeada {
   if (posicao == 0) {
     this.insertFirst(elemento)
   } else {
-    cnst anterior = this.searchAt(posicao -1);
+    const anterior = this.searchAt(posicao -1);
     const atual = anterior.proximo;
     novo.proximo = atual;
     anterior.proximo = novo;
