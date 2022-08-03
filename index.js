@@ -1,5 +1,5 @@
 // ARRAY - são utilizados para armazenar mais de um valor em uma única variável
-
+ 
 //Quando falarmo de arrays estamos falando de vetores (identificado em um linha) e matriz (multidimensional)
 
 const saldoGabriel = 1000;
@@ -504,7 +504,7 @@ console.table(deque.itens);
 console.log(deque.front());
 console.log(deque.rear());
 
-
+ 
 // listas encadeadas - listas ligadas -  ex. trem (cada vagao é um elemento e cada ligacao entre um deles é o ponteiro que indica o elemento)
 // o primeiro elemento é chamado de head (cabeça)
 // o ultimo elemento é conhecido como undefined
@@ -564,22 +564,53 @@ class ListaEncadeada {
     }
     return atual;
   }
-  insertAt(elemento, posicao){
-  const novo = new No(elemento)
-  if (posicao == 0) {
-    this.insertFirst(elemento)
-  } else {
-    const anterior = this.searchAt(posicao -1);
-    const atual = anterior.proximo;
-    novo.proximo = atual;
-    anterior.proximo = novo;
-
+  insertAt(elemento, posicao) {
+    const novo = new No(elemento);
+    if (posicao == 0) {
+      this.insertFirst(elemento);
+    } else {
+      const anterior = this.searchAt(posicao - 1);
+      const atual = anterior.proximo;
+      novo.proximo = atual;
+      anterior.proximo = novo;
+    }
+    return elemento;
   }
-  return elemento;
+  traversal() {
+    if (!this.head) {
+      return undefined;
+    } else {
+      let atual = this.head;
+      let elementosLista = [];
+      while (atual) {
+        elementosLista.push(atual.elemento);
+        atual = atual.proximo;
+      }
+      return elementosLista;
+    }
+  }
+  deleteAt(posicao) {
+    let atual = this.head;
+    if (posicao == 0) {
+      this.head = atual.proximo;
+    } else {
+      let anterior = atual;
+      for (let i = 0; i < posicao; i++) {
+        anterior = atual;
+        atual = atual.proximo;
+      }
+      anterior.proximo = atual.proximo;
+    }
+    return posicao;
   }
 }
+
 const trem = new ListaEncadeada();
 console.log(trem.insertFirst('Locomotiva')); // insere um nó no início da lista
 console.log(trem.insertLast('vagao1')); // insere um nó no final da lista
 console.log(trem.insertLast('vagao2'));
 console.log(trem.searchAt(2));
+console.log(trem.insertFirst('Vagao de Manobra'));
+console.log(trem.insertAt('vagão novo', 3));
+console.log(trem.deleteAt(3));
+console.table(trem.traversal());
